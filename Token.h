@@ -1,6 +1,8 @@
 #ifndef TOKEN_H
 #define TOKEN_H
 
+#include <iostream>
+
 enum class TokenType:int {
     END_OF_FILE = 0,
 
@@ -33,6 +35,7 @@ enum class TokenType:int {
 
     COMMA,
     SEMICOLON,
+    ASSIGNMENT,
     LEFT_PARENTHESIS,
     RIGHT_PARENTHESIS,
     LEFT_BRACKET,
@@ -47,9 +50,15 @@ class Token {
 	public:
 		Token();
 		~Token();
+
+		void toString() const;
 	public:
 		TokenType type;
-		char* lexeme;
+		unsigned int length = 0;
+		char* lexeme = nullptr;
+		unsigned int line = 0;
+
+		Token* next = nullptr;
 };
 
 #endif

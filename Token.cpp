@@ -1,13 +1,16 @@
 #include "Token.h"
 
 Token::Token() {
-	lexeme = nullptr;
+
 }
 
 Token::~Token() {
-	if(lexeme!=nullptr)delete lexeme;
+
 }
 
+void Token::toString() const {
+	std::cout<<TokenNames[static_cast<int>(type)]<<' '<<(lexeme?lexeme:"null")<<std::endl;
+}
 const char* TokenNames[] = {
 	"END_OF_FILE",
 
@@ -40,6 +43,7 @@ const char* TokenNames[] = {
 
 	"COMMA",
 	"SEMICOLON",
+	"ASSIGNMENT",
 	"LEFT_PARENTHESIS",
 	"RIGHT_PARENTHESIS",
 	"LEFT_BRACKET",
