@@ -3,6 +3,11 @@
 
 #include <iostream>
 
+struct location{
+	unsigned int line = 0;
+	unsigned int column = 0;
+};
+
 enum class TokenType:int {
     END_OF_FILE = 0,
 
@@ -56,7 +61,7 @@ class Token {
 		TokenType type;
 		unsigned int length = 0;
 		char* lexeme = nullptr;
-		unsigned int line = 0;
+		location loc;
 
 		Token* next = nullptr;
 };

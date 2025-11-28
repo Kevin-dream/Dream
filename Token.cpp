@@ -5,12 +5,14 @@ Token::Token() {
 }
 
 Token::~Token() {
-
+	if(lexeme!=nullptr)delete lexeme;
+	if(next!=nullptr)delete next;
 }
 
 void Token::toString() const {
 	std::cout<<TokenNames[static_cast<int>(type)]<<' '<<(lexeme?lexeme:"null")<<std::endl;
 }
+
 const char* TokenNames[] = {
 	"END_OF_FILE",
 
